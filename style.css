@@ -1,0 +1,262 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 2rem;
+    color: #e8e8e8;
+}
+
+.container {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.add-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.add-form input {
+    flex: 1;
+    min-width: 100px;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid #2d3a4f;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.add-form input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.add-form input:focus {
+    outline: none;
+    border-color: #e94560;
+    box-shadow: 0 0 0 2px rgba(233, 69, 96, 0.2);
+}
+
+.add-form input#item-name {
+    width: auto;
+    min-width: 6ch;
+    max-width: 32ch;
+}
+
+.date-input {
+    padding: 0.65rem 0.6rem;
+    border: 1px solid #2d3a4f;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 0.95rem;
+    min-width: 140px;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+.add-form input#item-qty {
+    width: 70px;
+    min-width: 70px;
+}
+
+.unit-select {
+    padding: 0.65rem 0.6rem;
+    border: 1px solid #2d3a4f;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    min-width: 60px;
+}
+
+.unit-select:focus {
+    outline: none;
+    border-color: #e94560;
+}
+
+.toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+.toast.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast.error {
+    background: rgba(244, 67, 54, 0.95);
+    color: #fff;
+}
+
+.toast.success {
+    background: rgba(76, 175, 80, 0.95);
+    color: #fff;
+}
+
+.toast.loading {
+    background: rgba(33, 150, 243, 0.95);
+    color: #fff;
+}
+
+.btn {
+    padding: 0.65rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-add {
+    background: #e94560;
+    color: #fff;
+}
+
+.btn-add:hover {
+    box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+}
+
+.shopping-list {
+    padding: 0;
+    margin: 0;
+}
+
+.day-section {
+    margin-bottom: 1.5rem;
+}
+
+.day-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.day-date {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+}
+
+.day-stats {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.day-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.day-items li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.2s;
+}
+
+.day-items li:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.day-items li.purchased {
+    opacity: 0.6;
+}
+
+.day-items li.purchased .item-text {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.item-text {
+    flex: 1;
+    font-size: 1rem;
+}
+
+.item-qty {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.purchase-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: #4caf50;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.btn-delete {
+    padding: 0.4rem 0.75rem;
+    background: rgba(244, 67, 54, 0.3);
+    color: #e57373;
+    font-size: 0.85rem;
+}
+
+.btn-delete:hover {
+    background: rgba(244, 67, 54, 0.5);
+}
+
+.shopping-list .empty-message {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 2rem;
+    font-size: 1rem;
+}
+.unit-select option {
+    background-color: #1a222f;                
+}
