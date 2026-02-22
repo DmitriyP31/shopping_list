@@ -49,7 +49,7 @@ function showToast(message, type = 'success') {
 
 function adaptInputSize() {
     const len = itemNameInput.value.length;
-    itemNameInput.size = Math.max(5, Math.min(len + 1, 31));
+    itemNameInput.size = Math.max(15, Math.min(len + 1, 31));
 }
 
 itemNameInput.addEventListener('input', adaptInputSize);
@@ -163,7 +163,7 @@ function addItem(e) {
         saveItems();
         itemNameInput.value = '';
         itemQtyInput.value = '1';
-        itemNameInput.size = 10;
+        itemNameInput.size = 15;
         itemDateInput.value = getToday();
         itemNameInput.focus();
         renderList();

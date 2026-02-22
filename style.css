@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-    max-width: 520px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -57,28 +57,40 @@ h1 {
 
 .add-form input#item-name {
     width: auto;
-    min-width: 6ch;
+    min-width: 15ch;
     max-width: 32ch;
 }
 
-.date-input {
+.add-form input.date-input {
+    flex: 0 0 auto;
+    width: 175px;
+    min-width: 175px;
     padding: 0.65rem 0.6rem;
+    padding-right: 2rem;
     border: 1px solid #2d3a4f;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.06);
     color: #fff;
     font-size: 0.95rem;
-    min-width: 140px;
 }
 
-.date-input:focus {
+.add-form input.date-input::-webkit-calendar-picker-indicator {
+    margin-left: 0;
+    opacity: 0.8;
+}
+
+.add-form input.date-input:focus {
     outline: none;
     border-color: #e94560;
 }
 
 .add-form input#item-qty {
-    width: 70px;
-    min-width: 70px;
+    flex: 0 0 auto;
+    width: 72px;
+    min-width: 72px;
+    max-width: 72px;
+    padding: 0.65rem 0.5rem;
+    text-align: center;
 }
 
 .unit-select {
